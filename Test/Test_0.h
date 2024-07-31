@@ -47,7 +47,7 @@ void static_local_var();
 int main_Test_0() {
 	//test_static_local_var();
 	//passing_array_2_functions();
-	fun1();
+	fun3();
 	return 0;
 }
 
@@ -178,7 +178,7 @@ void fun3() { // three ways of initializing variables
 	cout << "b = " << b << endl;
 	cout << "c = " << c << endl;*/
 
-	a = (b = 4, b + 7, b + 2);
+	a = (b = 4, b = b + 7, b + 2);
 
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
