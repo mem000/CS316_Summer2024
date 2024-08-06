@@ -9,7 +9,6 @@ void fun0();  //Char && ASCII Value
 void fun1();  //sizeof
 void fun2();
 void fun3(); // three ways of initializing variables
-void fun6(); //references & pointers
 
 int divide(int a, int b=2)
 {
@@ -47,30 +46,8 @@ void static_local_var();
 int main_Test_0() {
 	//test_static_local_var();
 	//passing_array_2_functions();
-	fun3();
+	//fun6();
 	return 0;
-}
-
-//references & pointers
-void fun6() { 
-	int x = 1; //int variable
-	int y = 2;
-	int& r = x; // reference to int
-	int* p;		// pointer to int
-	p = &x; // & (amperand): address operator; used to initialize a pointer.
-	//x = 3;
-	//&r = y;
-	//r = y;
-	//*p = y; // * (astrik): indirection operator); used only with pointers to
-	        //			   access the value which pointer refers to
-	//p = &y;
-	cout << "x = " << x << endl;  //direct access
-	cout << "r = " << r << endl;  //direct access
-	//We can consider reference as an alias for the variable, but they aren�t equivalent.
-	//cout << "p = " << p << endl;
-	cout << "*p = " << *p << endl; //indirect access
-
-	//TODO Task: Need to test how to pass references and pointers to a function ??
 }
 
 void fun0() {
@@ -111,7 +88,7 @@ void fun1() {
 	cout << "sizeof(char var):   " << sizeof(b) << " Bytes" << endl;
 	cout << "sizeof(bool var):   " << sizeof(flag) << " Bytes" << endl;
 	cout << "sizeof(double var): " << sizeof(m) << " Bytes" << endl;
-	cout << "sizeof(3 + 3.5 ): " << sizeof(3 + 3.5f) << " Bytes" << endl;
+	cout << "sizeof(3 + 3.5 ): " << sizeof(3 + 3.5) << " Bytes" << endl;
 	cout << "sizeof(7 + 3): " << sizeof(7 + 3) << " Bytes" << endl;
 	cout << "==========================================================" << endl;
 
@@ -187,14 +164,16 @@ void fun3() { // three ways of initializing variables
 
 void passing_array_2_functions() {
 	int arr[] = { 1, 2, 3, 4, 5 };
-	//print_Array_Size(arr);
-	int size = sizeof(arr) / sizeof(arr[0]); //getting array size using sizeof operator
-	//cout << "size == " << size << endl;
+//	print_Array_Size(arr);
+//    cout << "sizeof(arr) == " << sizeof(arr) << endl;
+    int size = sizeof(arr) / sizeof(arr[0]); //getting array size using sizeof operator
+//	cout << "size == " << size << endl;
 	printArray(arr, size);
 	printArray2(arr, size);
 	printArray(*arr, size);
 }
 void print_Array_Size(int* arr) {
+    cout << "inside fun: sizeof(arr) == " << sizeof(arr) << endl;
 	int size = sizeof(arr) / sizeof(arr[0]);
 	cout << "size inside fun. = " << size << endl;
 }
@@ -202,7 +181,8 @@ void printArray(int* arr, int size) {
 	cout << "printArray(int* arr, int size)" << endl;
 	for (int i = 0; i < size; i++)
 	{
-		cout << arr[i] << " ";
+//		cout << arr[i] << " ";
+        cout << *(arr + i) << " ";
 	}
 	cout << endl;
 }

@@ -55,6 +55,30 @@ build CMakeFiles/CS316_Summer2024.dir/main.cpp.obj: CXX_COMPILER__CS316_Summer20
   OBJECT_DIR = CMakeFiles\CS316_Summer2024.dir
   OBJECT_FILE_DIR = CMakeFiles\CS316_Summer2024.dir
 
+build CMakeFiles/CS316_Summer2024.dir/OOP/Test_OOP.cpp.obj: CXX_COMPILER__CS316_Summer2024_unscanned_Debug F$:/Cpp_SC/CS316_Summer2024/OOP/Test_OOP.cpp || cmake_object_order_depends_target_CS316_Summer2024
+  DEP_FILE = CMakeFiles\CS316_Summer2024.dir\OOP\Test_OOP.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CS316_Summer2024.dir
+  OBJECT_FILE_DIR = CMakeFiles\CS316_Summer2024.dir\OOP
+
+build CMakeFiles/CS316_Summer2024.dir/OOP/GradeBook.cpp.obj: CXX_COMPILER__CS316_Summer2024_unscanned_Debug F$:/Cpp_SC/CS316_Summer2024/OOP/GradeBook.cpp || cmake_object_order_depends_target_CS316_Summer2024
+  DEP_FILE = CMakeFiles\CS316_Summer2024.dir\OOP\GradeBook.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CS316_Summer2024.dir
+  OBJECT_FILE_DIR = CMakeFiles\CS316_Summer2024.dir\OOP
+
+build CMakeFiles/CS316_Summer2024.dir/OOP/Course.cpp.obj: CXX_COMPILER__CS316_Summer2024_unscanned_Debug F$:/Cpp_SC/CS316_Summer2024/OOP/Course.cpp || cmake_object_order_depends_target_CS316_Summer2024
+  DEP_FILE = CMakeFiles\CS316_Summer2024.dir\OOP\Course.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CS316_Summer2024.dir
+  OBJECT_FILE_DIR = CMakeFiles\CS316_Summer2024.dir\OOP
+
+build CMakeFiles/CS316_Summer2024.dir/OOP/Array.cpp.obj: CXX_COMPILER__CS316_Summer2024_unscanned_Debug F$:/Cpp_SC/CS316_Summer2024/OOP/Array.cpp || cmake_object_order_depends_target_CS316_Summer2024
+  DEP_FILE = CMakeFiles\CS316_Summer2024.dir\OOP\Array.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CS316_Summer2024.dir
+  OBJECT_FILE_DIR = CMakeFiles\CS316_Summer2024.dir\OOP
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CS316_Summer2024
@@ -63,7 +87,7 @@ build CMakeFiles/CS316_Summer2024.dir/main.cpp.obj: CXX_COMPILER__CS316_Summer20
 #############################################
 # Link the executable CS316_Summer2024.exe
 
-build CS316_Summer2024.exe: CXX_EXECUTABLE_LINKER__CS316_Summer2024_Debug CMakeFiles/CS316_Summer2024.dir/main.cpp.obj
+build CS316_Summer2024.exe: CXX_EXECUTABLE_LINKER__CS316_Summer2024_Debug CMakeFiles/CS316_Summer2024.dir/main.cpp.obj CMakeFiles/CS316_Summer2024.dir/OOP/Test_OOP.cpp.obj CMakeFiles/CS316_Summer2024.dir/OOP/GradeBook.cpp.obj CMakeFiles/CS316_Summer2024.dir/OOP/Course.cpp.obj CMakeFiles/CS316_Summer2024.dir/OOP/Array.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CS316_Summer2024.dir
