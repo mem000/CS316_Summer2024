@@ -7,9 +7,10 @@ int x; // integer variable
 int *p; // pointer to int
 int *f(); //prototype of a function that returns a pointer to int
 int (*g)(); // pointer to function that has no parameters and returns int
-int w() { return 0; }
+int w() { return 55; }
 
 void pointer3() {
     g = w; // initialize g with w
-    cout << g << endl;
+    cout << (*g)() << endl;
+    cout << w() << endl;
 }

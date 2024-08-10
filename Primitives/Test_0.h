@@ -6,7 +6,6 @@ using namespace std;
 
 //function prototypes (or function header / function declaration)
 void fun0();  //Char && ASCII Value
-void fun1();  //sizeof
 void fun2();
 void fun3(); // three ways of initializing variables
 
@@ -71,29 +70,7 @@ void fun0() {
 	cout << "==========================================================" << endl;
 }
 
-void fun1() {
-	cout << "sizeof(int):    " << sizeof(int) << " Bytes" << endl;
-	cout << "sizeof(long):   " << sizeof(long) << " Bytes" << endl;
-	cout << "sizeof(short):  " << sizeof(short) << " Bytes" << endl;
-	cout << "sizeof(bool):   " << sizeof(bool) << " Bytes" << endl;
-	cout << "sizeof(float):  " << sizeof(float) << " Bytes" << endl;
-	cout << "sizeof(double): " << sizeof(double) << " Bytes" << endl;
-	cout << "==========================================================" << endl;
-	int x = 5;
-	char b = 'M';
-	bool flag = true;
-	double m = 14.5;
 
-	cout << "sizeof(int var):    " << sizeof(x) << " Bytes" << endl;
-	cout << "sizeof(char var):   " << sizeof(b) << " Bytes" << endl;
-	cout << "sizeof(bool var):   " << sizeof(flag) << " Bytes" << endl;
-	cout << "sizeof(double var): " << sizeof(m) << " Bytes" << endl;
-	cout << "sizeof(3 + 3.5 ): " << sizeof(3 + 3.5) << " Bytes" << endl;
-	cout << "sizeof(7 + 3): " << sizeof(7 + 3) << " Bytes" << endl;
-	cout << "==========================================================" << endl;
-
-	
-}
 
 void fun2() {
 	int grade;
@@ -172,11 +149,7 @@ void passing_array_2_functions() {
 	printArray2(arr, size);
 	printArray(*arr, size);
 }
-void print_Array_Size(int* arr) {
-    cout << "inside fun: sizeof(arr) == " << sizeof(arr) << endl;
-	int size = sizeof(arr) / sizeof(arr[0]);
-	cout << "size inside fun. = " << size << endl;
-}
+
 void printArray(int* arr, int size) {
 	cout << "printArray(int* arr, int size)" << endl;
 	for (int i = 0; i < size; i++)

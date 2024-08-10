@@ -18,6 +18,4 @@ void pointer2() {
     cout << "firstvalue is " << firstvalue << endl;
     cout << "secondvalue is " << secondvalue << endl;
     ///////////////////////////////////////////////////
-
-
 }
