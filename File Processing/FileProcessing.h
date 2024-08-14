@@ -9,26 +9,36 @@
 #include <string>
 #include <sstream> // for istringstream
 #include <vector>
+
 using namespace std;
 
 void write_to_file();
+
 void read_from_file();
+
+void file_position_pointer();
+
 void getline_example1();
+
 void getline_example2();
+
 void getline_example3();
-void vector_2D();  //vector of vectors
+
 void count_records_fields_from_file();
 
 void main_FileProcessing() {
     //write_to_file();
-    read_from_file();
+    //read_from_file();
+    //getline_example1();
+    //getline_example2();
     //getline_example3();
+
+    file_position_pointer();
     //vector_2D();
-
-
     //count_records_fields_from_file();
 
 }
+
 void write_to_file() {
     ofstream outFile("courses.txt", ios::out);
     // exit program if unable to create file
@@ -94,6 +104,7 @@ void getline_example2() {
     is reached before a comma is encountered.
     */
 }
+
 void getline_example3() {
     ifstream data_file("data_file.txt");
     ofstream index_file("index_file.txt");
@@ -131,50 +142,104 @@ void getline_example3() {
     data_file.close();
     index_file.close();
 }
-void vector_2D() {
-    //vector of vectors of integers:
-    vector<vector<int>> vector_2d;
 
-    // To add a new vector, you can use the push_back() method:
-    vector<int> myVector1 = { 1, 2, 3 };
-    vector<int> myVector2 = { 11, 22, 33 };
-    vector<int> myVector3 = { 10, 20, 30 };
-    vector_2d.push_back(myVector1);
-    vector_2d.push_back(myVector2);
-    vector_2d.push_back(myVector3);
-    /*
-    To access an element of the vector of vectors, you can use
-    the[] operator twice, once to access the vector and again
-    to access the element of that vector :
-    */
-    cout << "vector_2d[0][1] = " << vector_2d[0][1] << endl;
+void file_position_pointer() {
+    // Create and open a file
+    ofstream outFile("example.txt");
+    outFile << "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    outFile.close();
 
-    // iterate through all the elements
-    for (vector<int>& vec : vector_2d) {
-        for (int& element : vec) {
-            cout << element << ' ';
-        }
-        cout << endl;
+    // Open the file in read and write mode
+    fstream file("example.txt", ios::in | ios::out);
+
+    if (!file) {
+        cerr << "Error opening file!" << endl;
+        return;
     }
+
+    // tellg to get the current get (read) position
+    streampos getPosition = file.tellg();
+    cout << "Initial get position: " << getPosition << endl;
+
+    // tellp to get the current put (write) position
+    streampos putPosition = file.tellp();
+    cout << "Initial put position: " << putPosition << endl;
+
+    // Move the get position to the 7th character (index 6)
+    file.seekg(6, ios::beg);
+    getPosition = file.tellg();
+    cout << "Get position after seekg(6): " << getPosition << endl;
+
+    // Move the put position to the 7th character (index 6)
+    file.seekp(6, ios::beg);
+    putPosition = file.tellp();
+    cout << "Put position after seekp(6): " << putPosition << endl;
+
+    // Read from the new get position
+    char ch;
+    file.get(ch);
+    cout << "Character at new get position: " << ch << endl;
+
+    // Write a character at the new put position
+    file.put('X');
+    cout << "Wrote 'X' at the new put position." << endl;
+
+    // Reset positions to the start and display the file contents
+    file.seekg(0, ios::beg);
+    string content;
+    getline(file, content);
+    cout << "Updated file content: " << content << endl;
+    //////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////
+    cout << "###############################################" << endl;
+    // Reset positions to the 'M' position
+    file.seekg(12);
+    // Move the get pointer n bytes forward from the current position (ios::cur)
+    file.seekg(5, ios::cur);
+    streampos position1 = file.tellg();
+    cout << "Position after seekg(5, ios::cur): " << position1 << endl;
+
+    cout << "Character at new get position: " << (file.get(ch), ch) << endl;
+
+    // Move the get pointer n bytes back from the end of the file (ios::end)
+    file.seekg(-5, ios::end);
+    streampos position2 = file.tellg();
+    cout << "Position after seekg(-5, ios::end): " << position2 << endl;
+
+    cout << "Character at new get position: " << (file.get(ch), ch) << endl;
+
+    // Move the get pointer to the end of the file (ios::end)
+    file.seekg(0, ios::end);
+    streampos position3 = file.tellg();
+    cout << "Position after seekg(0, ios::end): " << position3 << endl;
+
+    // Read the character at the current position
+    file.seekg(-1, ios::cur); // Move back one position from the end to read the last character
+    file.get(ch);
+    cout << "Character at the end of the file: " << ch << endl;
+
+    // Close the file
+    file.close();
+
 }
 
 void count_records_fields_from_file() {
-    std::ifstream infile("records.txt"); // Open input file
-    std::vector<std::string> words; // Vector to store words
+    ifstream infile("records.txt"); // Open input file
+    vector<string> words; // Vector to store words
     int numRecords = 0; // Number of records
-    std::string line; // String to store each line from file
+    string line; // String to store each line from file
 
-    while (std::getline(infile, line)) { // Read line by line
+    while (getline(infile, line)) { // Read line by line
         ++numRecords; // Increment number of records
-        std::string word; // String to store each word from line
-        for (char c : line) { // Iterate through each character of the line
+        string word; // String to store each word from line
+        for (char c: line) { // Iterate through each character of the line
             if (c == ' ' || c == '\t') { // Word separator found
                 if (!word.empty()) { // Add non-empty word to vector
                     words.push_back(word);
                     word.clear();
                 }
-            }
-            else { // Add character to current word
+            } else { // Add character to current word
                 word += c;
             }
         }
@@ -185,8 +250,8 @@ void count_records_fields_from_file() {
 
     infile.close(); // Close input file
 
-    std::cout << "Number of words: " << words.size() << std::endl;
-    std::cout << "Number of records: " << numRecords << std::endl;
+    cout << "Number of words: " << words.size() << endl;
+    cout << "Number of records: " << numRecords << endl;
 
 }
 

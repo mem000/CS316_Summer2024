@@ -19,4 +19,7 @@ add_executable(CS316_Summer2024 main.cpp
         Primitives/sizeof.h
         Primitives/Test_0.h
         "File Processing/FileProcessing.h"
-        "File Processing/Files2.h")
+        "File Processing/Files2.h"
+        "File Processing/text_binary.h"
+        "File Processing/text_binary.h"
+        STL/ContainerClasses.h)
