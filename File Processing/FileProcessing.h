@@ -31,9 +31,9 @@ void main_FileProcessing() {
     //read_from_file();
     //getline_example1();
     //getline_example2();
-    //getline_example3();
+    getline_example3();
 
-    file_position_pointer();
+    //file_position_pointer();
     //vector_2D();
     //count_records_fields_from_file();
 

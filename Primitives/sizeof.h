@@ -18,11 +18,11 @@ void sizeof_string();
 
 
 void sizeof_test() {
-    //sizeof_basicTypes();
+    sizeof_basicTypes();
     cout << "==========================================================" << endl;
     //sizeof_variables();
     cout << "==========================================================" << endl;
-    //sizeof_array();
+    sizeof_array();
     /* The unary operator sizeof determines the size in bytes of a built-in array
      * or of any other data type, variable or constant during program compilation.
      * When applied to a built-in array’s name, the sizeof operator returns the total
@@ -33,7 +33,7 @@ void sizeof_test() {
      * array’s size.
      */
     cout << "==========================================================" << endl;
-    sizeof_string();
+    //sizeof_string();
     cout << "==========================================================" << endl;
 }
 
@@ -41,7 +41,8 @@ void sizeof_basicTypes() {
     cout << "sizeof(int):    " << sizeof(int) << " Bytes" << endl;
     cout << "sizeof(long):   " << sizeof(long) << " Bytes" << endl;
     cout << "sizeof(short):  " << sizeof(short) << " Bytes" << endl;
-    cout << "sizeof(bool):   " << sizeof(bool) << " Bytes" << endl;
+    cout << "sizeof(bool):   " << sizeof(bool) << " Byte" << endl;
+    cout << "sizeof(char):   " << sizeof(char) << " Byte" << endl;
     cout << "sizeof(float):  " << sizeof(float) << " Bytes" << endl;
     cout << "sizeof(double): " << sizeof(double) << " Bytes" << endl;
 }
@@ -65,6 +66,10 @@ void sizeof_array() {
     cout << "getSize(arr) == " << getSize(arr) << endl;
     int arraySize = sizeof(arr) / sizeof(arr[0]); //getting array size using sizeof operator
     cout << "arraySize == " << arraySize << endl;
+
+    cout << "sizeof(int *): " << sizeof(int *) << " Bytes" << endl;
+    cout << "sizeof(double *): " << sizeof(double *) << " Bytes" << endl;
+    cout << "sizeof(char *): " << sizeof(char *) << " Bytes" << endl;
 }
 
 int getSize(int *arr) {

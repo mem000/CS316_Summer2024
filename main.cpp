@@ -18,9 +18,9 @@ int main() {
     //std::cout << "Hello, World!" << std::endl;
     //writing_text_and_binary();
     //writing_reading_string();
-    //main_FileProcessing();
+    main_FileProcessing();
     //sizeof_test();
-    STL_main();
+    //STL_main();
 
 //    cout << setw(8) << "AHMED" << setw(5) << "AYA" << setw(4) << "33" << setw(3) << "5" << endl;
 //    cout << left << setw(8) << "AHMED" << setw(5) << "AYA" << setw(4) << "33" << setw(3) << "5" << endl;
